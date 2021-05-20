@@ -1,21 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  StyleSheet
+} from 'react-native';
+import {
+  SafeAreaView
+} from 'react-native-safe-area-context'
+import {
+  AdMobBanner,
+  setTestDeviceIDAsync
+} from 'expo-ads-admob'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import LoveCalculator from './components/LoveCalculator';
+
+const App = () => {
+  return(
+    <SafeAreaView style={styles.container}>
+      <LoveCalculator/>
+      <AdMobBanner
+        bannerSize="fullBanner"
+        adUnitID="ca-app-pub-4472696892557860/7507150193" // Test ID, Replace with your-admob-unit-id
+        servePersonalizedAds // true or false
+        onDidFailToReceiveAdWithError={(error) => console.log(error)} />
+    </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container:{
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    backgroundColor:'#c71e72'
+  }
+})
+
+export default App;

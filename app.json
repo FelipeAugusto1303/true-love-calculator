@@ -23,7 +23,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-4472696892557860~1156723631"
+      },
+      "package": "com.felipe13.lovecalculator3"
     },
     "web": {
       "favicon": "./assets/favicon.png"
