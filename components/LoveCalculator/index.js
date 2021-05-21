@@ -73,16 +73,16 @@ const LoveCalculator = () => {
             setPercentage(response.data.percentage)
             const result = parseInt(response.data.percentage)
             if(result < 50){
-                setDescription("Que pena!\nMelhor procurar alguem melhor")
+                setDescription("Que pena!\nMelhor procurar alguém melhor")
             }
             else if(result < 70){
-                setDescription("Muito bom!\nVejo que voces tem uma conexao")
+                setDescription("Muito bom!\nVejo que vocês tem uma conexão")
             }
             else if(result < 90){
-                setDescription("Legal!\nVoce encontrou uma pessoa muito especial, cuide muito bem dela")
+                setDescription("Legal!\nVocê encontrou uma pessoa muito especial, cuide muito bem dela")
             }
             else if(result >= 90){
-                setDescription("Parabens!\nVoce encontrou sua alma gemea, voces estao destinados a ser felizes para sempre")
+                setDescription("Parabéns!\nVocê encontrou sua alma gêmea, vocês estão destinados a ser felizes para sempre")
             }
             
         }).catch(function (error) {
@@ -127,7 +127,7 @@ const LoveCalculator = () => {
                 </View>
                 
             </Modal>
-            <Text style={styles.title}>True Love Calculator</Text>
+            <Text style={styles.title}>Calculadora do Amor Verdadeiro</Text>
             <View style={{width:"100%", height: 200, alignItems: 'center', justifyContent: 'center'}}>
                 <Animated.Image source={require('../../images/heart.png')} style={{...styles.heartImage, transform:[{scale:fadeAnim}]}}/>
             </View>
@@ -163,8 +163,9 @@ const styles = StyleSheet.create({
     title:{
         fontFamily: 'sans-serif',
         fontWeight: 'bold',
+        fontStyle: 'italic',
         color: '#fff',
-        fontSize: 25,
+        fontSize: 20,
         marginTop: 20
     },
     inputContainer:{
