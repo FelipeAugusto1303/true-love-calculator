@@ -17,6 +17,7 @@ const LoveCalculator = () => {
     const fadeAnim = React.useRef(new Animated.Value(1)).current
     const [modalVisible, setModalVisible] = React.useState(false);
     const [percentage, setPercentage] = React.useState(null);
+    const [description, setDescription] = React.useState(null);
 
     React.useEffect(() => {
         Animated.loop(
@@ -68,13 +69,28 @@ const LoveCalculator = () => {
             }
           }).then(function (response) {
             console.log(response.data);
+            console.log(parseInt(response.data.percentage))
             setPercentage(response.data.percentage)
+            const result = parseInt(response.data.percentage)
+            if(result < 50){
+                setDescription("Que pena!\nMelhor procurar alguem melhor")
+            }
+            else if(result < 70){
+                setDescription("Muito bom!\nVejo que voces tem uma conexao")
+            }
+            else if(result < 90){
+                setDescription("Legal!\nVoce encontrou uma pessoa muito especial, cuide muito bem dela")
+            }
+            else if(result >= 90){
+                setDescription("Parabens!\nVoce encontrou sua alma gemea, voces estao destinados a ser felizes para sempre")
+            }
             
         }).catch(function (error) {
             console.error(error);
         });
         
     }
+
 
     return(
         <View style={styles.container}>
@@ -91,6 +107,7 @@ const LoveCalculator = () => {
                         <View style={{alignItems:'center'}}>
                         <Text style={{...styles.title, color:'#000'}}>Resultado</Text>
                         <Text style={styles.resultText}>{percentage}%</Text>
+                        <Text style={{...styles.resultText, fontSize: 20, textAlign: 'center',paddingHorizontal: 5}}>{description}</Text>
                     </View>
                     :
                     <View style={{alignItems:'center', justifyContent: 'center', height:'65%'}}>
