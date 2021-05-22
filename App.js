@@ -6,8 +6,7 @@ import {
   SafeAreaView
 } from 'react-native-safe-area-context'
 import {
-  AdMobBanner,
-  setTestDeviceIDAsync
+  AdMobBanner
 } from 'expo-ads-admob'
 
 import LoveCalculator from './components/LoveCalculator';
